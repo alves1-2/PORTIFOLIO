@@ -1,0 +1,794 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Alves Studio - Creative Services</title>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Alves Studio — creative services and media production. Contact us for your creative needs."
+    />
+    <meta name="theme-color" content="#009688" />
+    <!-- Font Awesome & CSS -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23009688'/%3E%3Ctext x='12' y='16' font-size='10' text-anchor='middle' fill='%23fff' font-family='Arial'%3EA%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=kaushan+script|poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#Alves">Jya ku gice cy'ingenzi</a>
+    <!-- Local Run Banner (shown when opened via file://) -->
+    <div
+      id="localRunBanner"
+      style="
+        display: none;
+        background: #fff3cd;
+        border: 1px solid #ffeeba;
+        padding: 12px;
+        text-align: center;
+        font-size: 14px;
+        position: fixed;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9998;
+        border-radius: 6px;
+        max-width: 900px;
+      "
+    >
+      Wafunguye uru rupapuro aho uri (file://). Nta bwa server isabwa.
+      <button
+        onclick="enableLocalMode()"
+        style="
+          margin-left: 12px;
+          padding: 6px 10px;
+          background: #0275d8;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        "
+      >
+        Koresha uburyo bwa lokale
+      </button>
+      <button
+        onclick="this.parentElement.style.display = 'none'"
+        style="
+          margin-left: 8px;
+          padding: 6px 10px;
+          background: transparent;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          cursor: pointer;
+        "
+      >
+        Funga
+      </button>
+    </div>
+    <section id="Alves" role="region" aria-label="Hero">
+      <div class="pphoto container">
+        <div class="hero-photo">
+          <img src="alves.jpg" alt="Alves portrait" />
+        </div>
+        <div class="alves-text">
+          <h1>Alves Studio</h1>
+          <p class="welcome">Murakaza neza — Creative Services</p>
+          <div class="alves-btn">
+            <a href="#contact"><span></span>Contact Us</a>
+          </div>
+        </div>
+        <div class="search-wrapper">
+          <form id="searchForm">
+            <select id="engine">
+              <option value="https://www.google.com/search?q=">Google</option>
+              <option value="https://www.youtube.com/results?search_query=">YouTube</option>
+            </select>
+            <label for="search-box"><i class="fa fa-search"></i></label>
+            <input type="text" id="search-box" placeholder="Shakisha hano..." />
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+          <script>
+            document.getElementById('searchForm').addEventListener('submit', function (e) {
+              e.preventDefault();
+              const query = document.getElementById('search-box').value.trim();
+              const engine = document.getElementById('engine').value;
+              if (query) {
+                window.open(engine + encodeURIComponent(query), '_blank');
+              }
+            });
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <div id="sideNav">
+      <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-header">
+          <h2>Menu</h2>
+          <button
+            id="closeNav"
+            aria-label="Close navigation"
+            class="close-btn"
+            onclick="toggleMenu()"
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <ul>
+          <li>
+            <a href="#Alves" class="nav-link"><i class="fa fa-home"></i> HOME</a>
+          </li>
+          <li>
+            <a href="#about-menu" class="nav-link"><i class="fa fa-info-circle"></i> ABOUT</a>
+          </li>
+          <li>
+            <a href="#contact" class="nav-link"><i class="fa fa-map-marker"></i> ADDRESS</a>
+          </li>
+          <li>
+            <a href="#contact" class="nav-link"><i class="fa fa-envelope"></i> CONTACT</a>
+          </li>
+          <li>
+            <a href="#account" class="nav-link" title="Account">
+              <i class="fa fa-user-circle"></i> ACCOUNT
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <button
+      id="manuBtn"
+      type="button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      onclick="toggleMenu()"
+    >
+      <span class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    <button
+      id="darkModeToggle"
+      title="Toggle dark mode"
+      aria-pressed="false"
+      style="
+        position: fixed;
+        right: 100px;
+        top: 12px;
+        z-index: 9999;
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      🌙
+    </button>
+    <section id="about-menu">
+      <div class="title-text">
+        <p>ABOUT ME</p>
+        <h1>why you choose us</h1>
+      </div>
+      <div class="about-box">
+        <div class="about-menu">
+          <h1>Experianced staff</h1>
+          <div class="about-menu-desc">
+            <div class="about-icon">
+              <i class="fa fa-shield"></i>
+            </div>
+            <div class="about-text">
+              <p>
+                this is the part that i will write somethings that i want after developing this!
+              </p>
+            </div>
+          </div>
+          <h1>pre booking online</h1>
+          <div class="about-menu-desc">
+            <div class="about-icon">
+              <i class="fa fa-check-square-o"></i>
+            </div>
+            <div class="about-text">
+              <p>
+                this is the part that i will write somethings that i want after developing this!
+              </p>
+            </div>
+          </div>
+          <h1>affordable cost</h1>
+          <div class="about-menu-desc">
+            <div class="about-icon">
+              <i class="fa fa-inr"></i>
+            </div>
+            <div class="about-text">
+              <p>
+                this is the part that i will write somethings that i want after developing this!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="about-menu-img">
+          <img src="alves.jpg" width="70%" alt="Alves portrait" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox modal for video playback -->
+    <div
+      id="lightboxModal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        align-items: center;
+        justify-content: center;
+        z-index: 10001;
+      "
+    >
+      <div style="position: relative; max-width: 960px; width: 95%">
+        <button
+          id="lightboxClose"
+          aria-label="Funga videwo"
+          style="
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            z-index: 2;
+            background: transparent;
+            border: none;
+            font-size: 22px;
+            color: #fff;
+            cursor: pointer;
+          "
+        >
+          ✕
+        </button>
+        <video
+          id="lightboxPlayer"
+          controls
+          preload="metadata"
+          style="width: 100%; height: auto; background: #000; border-radius: 6px"
+          aria-label="Umukinnyi wa videwo"
+        >
+          <source src="" type="video/mp4" />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    </div>
+    <div
+      id="lightboxModal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        align-items: center;
+        justify-content: center;
+        z-index: 10001;
+      "
+    >
+      <div style="position: relative; max-width: 960px; width: 95%">
+        <button
+          id="lightboxClose"
+          aria-label="Funga videwo"
+          style="
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            z-index: 2;
+            background: transparent;
+            border: none;
+            font-size: 22px;
+            color: #fff;
+            cursor: pointer;
+          "
+        >
+          ✕
+        </button>
+        <video
+          id="lightboxPlayer"
+          controls
+          preload="metadata"
+          style="width: 100%; height: auto; background: #000; border-radius: 6px"
+          aria-label="Umukinnyi wa videwo"
+        >
+          <source src="" type="video/mp4" />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    </div>
+
+    <!-- Contact Us -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <div class="contact-header">
+          <div class="contact-title-wrapper">
+            <h2 class="contact-title">
+              <span class="contact-icon">📧</span>
+              Contact Us
+            </h2>
+            <div class="twandikire-badge">
+              <span class="twandikire-text">TWANDIKIRE</span>
+              <div class="twandikire-glow"></div>
+            </div>
+          </div>
+          <p class="contact-subtitle">
+            Waba ufite ikibazo, igitekerezo cyangwa ubufatanye — twandikire kuri:
+          </p>
+        </div>
+
+        <div class="contact-content">
+          <div class="contact-info-card">
+            <div class="info-header">
+              <i class="fa fa-info-circle"></i>
+              <h3>Amakuru yacu</h3>
+            </div>
+            <address class="contact-details">
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <i class="fa fa-building"></i>
+                </div>
+                <div class="detail-content">
+                  <strong>Alves Studio</strong>
+                  <span>Creative Services & Media Production</span>
+                </div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <i class="fa fa-map-marker"></i>
+                </div>
+                <div class="detail-content">
+                  <strong>Kigali, Rwanda</strong>
+                  <span>Ahantu hazwi — Centre-ville</span>
+                </div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <i class="fa fa-envelope"></i>
+                </div>
+                <div class="detail-content">
+                  <a href="mailto:nkurikiyimanatheoneste8@gmail.com" class="contact-link">
+                    nkurikiyimanatheoneste8@gmail.com
+                  </a>
+                  <span>Turisubiza mu masaha 24</span>
+                </div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <i class="fa fa-phone"></i>
+                </div>
+                <div class="detail-content">
+                  <a href="tel:+250793758208" class="contact-link"> +250 79 375 8208 </a>
+                  <span>WhatsApp & Telephone</span>
+                </div>
+              </div>
+            </address>
+            <div class="contact-note">
+              <i class="fa fa-clock-o"></i>
+              <p><strong>Igihe cyo gukora:</strong> Kuwa mbere - Kuwa gatanu (8:00 - 18:00)</p>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <div class="form-header">
+              <i class="fa fa-paper-plane"></i>
+              <h3>Twandikire ubu!</h3>
+            </div>
+            <form id="contactForm" class="contact-form" aria-label="Contact form">
+              <div class="form-row">
+                <label for="contactName">
+                  <i class="fa fa-user"></i>
+                  Amazina / Name
+                </label>
+                <input
+                  type="text"
+                  id="contactName"
+                  placeholder="Izina ryawe cyangwa iry'ikigo"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <label for="contactEmail">
+                  <i class="fa fa-envelope"></i>
+                  Email
+                </label>
+                <input type="email" id="contactEmail" placeholder="Email yawe" required />
+              </div>
+              <div class="form-row">
+                <label for="contactSubject">
+                  <i class="fa fa-tag"></i>
+                  Ubutumwa bufite insanganyamatsiko / Subject
+                </label>
+                <select id="contactSubject" required>
+                  <option value="">Hitamo insanganyamatsiko...</option>
+                  <option value="service">Serivisi</option>
+                  <option value="collaboration">Ubufatanye</option>
+                  <option value="inquiry">Ibibazo</option>
+                  <option value="feedback">Igitekerezo</option>
+                  <option value="other">Ibindi</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="contactMessage">
+                  <i class="fa fa-comment"></i>
+                  Ubutumwa / Message
+                </label>
+                <textarea
+                  id="contactMessage"
+                  rows="5"
+                  placeholder="Andika ubutumwa bwawe hano..."
+                  required
+                ></textarea>
+              </div>
+              <div class="form-row form-actions">
+                <button id="contactSubmit" class="btn-submit" type="submit">
+                  <i class="fa fa-send"></i>
+                  Ohereza ubutumwa
+                </button>
+                <div class="form-status" id="formStatus"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIUM VIDEO PLATFORM SECTION (moved to follow nav order) -->
+    <section id="account">
+      <section id="videoPlatform">
+        <div class="video-platform-container">
+          <!-- Payment/Subscription Wall (Shown before signup) -->
+          <div id="paymentWall" class="payment-wall">
+            <div class="payment-card">
+              <div class="payment-header">
+                <h2>🎬 Alves Studio Premium</h2>
+                <p>Uhabwa uburenganzira budafite imipaka ku mafilime yihariye</p>
+              </div>
+
+              <div class="pricing-box">
+                <h3>Iyandikisha rya buri kwezi</h3>
+                <div class="price">
+                  <span class="currency">RWF</span>
+                  <span class="amount">2,700</span>
+                  <span class="period">/ukwezi</span>
+                </div>
+
+                <div class="features-list">
+                  <p><i class="fa fa-check"></i> Reba amafilime nta mpera</p>
+                  <p><i class="fa fa-check"></i> Uburyo butagira amatangazo</p>
+                  <p><i class="fa fa-check"></i> Kuramo kugira ngo urebe igihe udafite Internet</p>
+                  <p><i class="fa fa-check"></i> Gusakaza amashusho meza</p>
+                  <p><i class="fa fa-check"></i> Uburenganzira ku bikoresho bya premium</p>
+                </div>
+
+                <!-- Payment Confirmation Modal -->
+                <div
+                  id="paymentConfirmModal"
+                  style="
+                    display: none;
+                    position: fixed;
+                    inset: 0;
+                    background: rgba(0, 0, 0, 0.6);
+                    z-index: 10000;
+                    align-items: center;
+                    justify-content: center;
+                  "
+                >
+                  <div
+                    style="
+                      background: #fff;
+                      padding: 18px;
+                      border-radius: 8px;
+                      max-width: 420px;
+                      margin: 20px auto;
+                      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+                    "
+                  >
+                    <h3 style="margin-top: 0">Emeza Iyishyurwa</h3>
+                    <p
+                      id="modalInstruction"
+                      style="font-size: 14px; color: #333; margin-bottom: 8px"
+                    >
+                      Soma neza amakuru y'iyishyurwa hasi. Ushobora guhindura umugozi wa USSD mbere
+                      yo guhamagara.
+                    </p>
+                    <div style="margin-bottom: 8px">
+                      <label style="font-size: 13px; color: #555">Your Phone (From):</label>
+                      <input
+                        id="modalFromPhone"
+                        type="text"
+                        placeholder="Enter your phone number (e.g. 07xxxxxxxx)"
+                        style="
+                          width: 100%;
+                          padding: 8px;
+                          margin-top: 6px;
+                          border: 1px solid #ddd;
+                          border-radius: 4px;
+                        "
+                      />
+                    </div>
+                    <div style="margin-bottom: 8px">
+                      <label style="font-size: 13px; color: #555">Amount (RWF):</label>
+                      <input
+                        id="modalAmount"
+                        type="text"
+                        style="
+                          width: 100%;
+                          padding: 8px;
+                          margin-top: 6px;
+                          border: 1px solid #ddd;
+                          border-radius: 4px;
+                        "
+                      />
+                    </div>
+                    <div style="margin-bottom: 8px; font-size: 14px; color: #333">
+                      <span
+                        >👤 <strong>To:</strong> <strong id="modalToMasked">(hidden)</strong></span
+                      >
+                    </div>
+                    <div style="margin-bottom: 8px">
+                      <label style="font-size: 13px; color: #555">USSD / Dial string:</label>
+                      <input id="modalUssd" type="hidden" style="display: none" />
+                      <div style="font-size: 13px; color: #666; margin-top: 6px">
+                        (Recipient number is hidden for privacy. Enter your phone above before
+                        dialing.)
+                      </div>
+                    </div>
+                    <div style="text-align: right">
+                      <button
+                        id="modalCopyBtn"
+                        style="
+                          margin-right: 8px;
+                          padding: 8px 12px;
+                          border-radius: 4px;
+                          border: 1px solid #ccc;
+                          background: #f8f9fa;
+                          cursor: pointer;
+                        "
+                      >
+                        Copy details
+                      </button>
+                      <button
+                        id="modalCancelBtn"
+                        style="
+                          margin-right: 8px;
+                          padding: 8px 12px;
+                          border-radius: 4px;
+                          border: none;
+                          background: #eee;
+                          cursor: pointer;
+                        "
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        id="modalDialBtn"
+                        style="
+                          padding: 8px 12px;
+                          border-radius: 4px;
+                          background: #28a745;
+                          color: #fff;
+                          border: none;
+                          cursor: pointer;
+                        "
+                      >
+                        Dial Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 1: Payment Button -->
+                <div id="step1" class="payment-step active">
+                  <button class="pay-now-btn" onclick="initiatePaymentDial()">
+                    <i class="fa fa-credit-card"></i> Pay Now - 2,700 RWF
+                  </button>
+                  <button
+                    class="kwishyura-btn"
+                    onclick="initiateKwishyura()"
+                    style="
+                      margin-left: 10px;
+                      background: #27ae60;
+                      color: #fff;
+                      border: none;
+                      padding: 10px 14px;
+                      border-radius: 4px;
+                      cursor: pointer;
+                    "
+                  >
+                    <i class="fa fa-mobile"></i> KWISHYURA
+                  </button>
+                </div>
+
+                <!-- Step 2: Payment Instructions -->
+                <div id="step2" class="payment-step" style="display: none">
+                  <div class="payment-method">
+                    <h4>💳 Amabwiriza y'iyishyurwa</h4>
+                    <div class="mtn-payment">
+                      <p><strong>MTN Mobile Money Transfer:</strong></p>
+                      <div class="instruction-box">
+                        <p>📱 <strong>Dial:</strong> <strong>*182*1*1*</strong></p>
+                        <p>💰 <strong>Amount:</strong> <strong>2,700 RWF</strong></p>
+                        <p>
+                          👤 <strong>To:</strong> <strong id="staticRecipient">••••8208</strong>
+                        </p>
+                        <p>📌 <strong>Reference:</strong> <strong>ALVES-PREMIUM</strong></p>
+                      </div>
+                    </div>
+                    <p style="margin-top: 15px; text-align: center; font-size: 12px; color: #666">
+                      <i class="fa fa-info-circle"></i> Nyuma yo kwishyura uzahabwa kode y'imibare 6
+                      confirmation code via SMS
+                    </p>
+                  </div>
+                  <button class="next-step-btn" onclick="goToStep3()">
+                    <i class="fa fa-arrow-right"></i> Wohereje amafaranga?
+                  </button>
+                </div>
+
+                <!-- Step 3: Verification Code -->
+                <div id="step3" class="payment-step" style="display: none">
+                  <div class="confirmation-box">
+                    <h4 style="margin: 0 0 15px 0; color: #333; text-align: center">
+                      Enter Confirmation Code
+                    </h4>
+                    <label>Paste the 6-digit code received via SMS:</label>
+                    <input type="text" id="paymentCode" placeholder="000000" maxlength="6" />
+                    <button class="verify-btn" onclick="verifyPayment(this)">
+                      <i class="fa fa-check-circle"></i> Emeza kandi ukomeze
+                    </button>
+                    <button class="back-step-btn" onclick="goBackToStep1()">
+                      <i class="fa fa-arrow-left"></i> Cancel
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Signup & Login Forms -->
+                <div id="authForm-signup" class="auth-form">
+                  <h2>Create Account</h2>
+                  <div class="form-group">
+                    <label for="signupUsername">Username</label
+                    ><input
+                      type="text"
+                      id="signupUsername"
+                      placeholder="Choose a username"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="signupEmail">Email</label
+                    ><input type="email" id="signupEmail" placeholder="Enter your email" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="signupPassword">Password</label
+                    ><input
+                      type="password"
+                      id="signupPassword"
+                      placeholder="Create a password"
+                      required
+                    />
+                  </div>
+                  <button class="auth-btn" onclick="signup()">Create Account</button>
+                </div>
+                <div id="authForm-login" class="auth-form">
+                  <h2>Welcome Back</h2>
+                  <div class="form-group">
+                    <label for="loginEmail">Email</label
+                    ><input type="email" id="loginEmail" placeholder="Enter your email" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="loginPassword">Password</label
+                    ><input
+                      type="password"
+                      id="loginPassword"
+                      placeholder="Enter your password"
+                      required
+                    />
+                  </div>
+                  <button class="auth-btn" onclick="login()">Login</button>
+                </div>
+              </div>
+
+              <!-- Video Library & Player -->
+              <div id="videoLibrary" class="video-library" style="display: none">
+                <div class="library-header">
+                  <div class="library-title">
+                    <h2>🎥 Video Library</h2>
+                    <p>Murakaza neza, <span id="userDisplayName"></span></p>
+                  </div>
+                  <div class="library-controls">
+                    <input type="text" id="searchVideos" placeholder="Search videos..." /><button
+                      id="logoutBtn"
+                      class="logout-btn"
+                    >
+                      <i class="fa fa-sign-out"></i> Logout
+                    </button>
+                  </div>
+                </div>
+                <div id="playerSection" class="video-player-section" style="display: none">
+                  <div class="player-container">
+                    <video id="mainPlayer" class="main-player" controls>
+                      <source src="" type="video/mp4" />
+                      Your browser doesn't support HTML5 video.
+                    </video>
+                    <div class="player-info">
+                      <h3 id="currentVideoTitle"></h3>
+                      <p id="currentVideoDesc"></p>
+                      <div class="player-stats">
+                        <span><i class="fa fa-clock-o"></i> <span id="watchTime">0:00</span></span
+                        ><span
+                          ><i class="fa fa-eye"></i> Views: <span id="videoViews">0</span></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <button class="back-to-library" onclick="backToLibrary()">
+                    <i class="fa fa-arrow-left"></i> Back to Library
+                  </button>
+                </div>
+                <div id="videosGrid" class="videos-premium-grid"></div>
+                <div id="watchHistory" class="watch-history" style="display: none">
+                  <h3><i class="fa fa-history"></i> Continue Watching</h3>
+                  <div id="historyContainer" class="history-container"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #0b0f0d; color: #ddd; padding: 28px 16px; margin-top: 40px">
+      <div
+        style="
+          max-width: 1100px;
+          margin: 0 auto;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <div>
+          <strong>Alves Studio</strong>
+          <p style="margin: 6px 0 0; font-size: 14px; color: #bfbfbf">
+            Amafilime y'umwimerere, trailers n'ibindi by'ubuhanzi. Vugana: info@alves.studio
+          </p>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center">
+          <a href="#Video" style="color: #fff; text-decoration: none">Library</a
+          ><a href="#account" style="color: #fff; text-decoration: none">Premium</a
+          ><a href="#" style="color: #fff; text-decoration: none">Support</a>
+        </div>
+        <div style="font-size: 13px; color: #888">© <span id="year"></span> Alves Studio</div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
